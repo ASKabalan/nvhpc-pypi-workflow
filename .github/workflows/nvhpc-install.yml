@@ -1,0 +1,20 @@
+name: Install NVHPC
+
+on: [push]
+
+jobs:
+  install-nvhpc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download NVHPC
+        run: wget https://developer.download.nvidia.com/hpc-sdk/23.9/nvhpc_2023_239_Linux_x86_64_cuda_multi.tar.gz
+
+      - name: Extract NVHPC
+        run: tar -xzf nvhpc_2023_239_Linux_x86_64_cuda_multi.tar.gz
+
+      - name: Install NVHPC
+        run: nvhpc_2023_239_Linux_x86_64_cuda_multi/install
