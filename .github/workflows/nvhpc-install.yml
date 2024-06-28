@@ -26,16 +26,14 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y nvhpc-23-9
 
-      - name: Download and install NVHPC
+      - name: Check install
         run: |
-          echo "Downloading NVHPC...."
-          wget -nv https://developer.download.nvidia.com/hpc-sdk/23.9/nvhpc_2023_239_Linux_x86_64_cuda_12.2.tar.gz
-          echo "Downloaded NVHPC."
-          echo "Extracting NVHPC...."
-          tar xpzf nvhpc_2023_239_Linux_x86_64_cuda_12.2.tar.gz
-          echo "Extracted NVHPC."
-          rm -rf nvhpc_2023_239_Linux_x86_64_cuda_12.2.tar.gz
-          echo "Installing NVHPC...."
-          nvhpc_2023_239_Linux_x86_64_cuda_12.2/install
-          echo "Installed NVHPC."
-          echo "NVHPC installation complete."
+          echo "Checking NVHPC installation"
+          which nvcc
+          nvcc -V
+          which nvc
+          nvc -V
+          which nvc++
+          nvc++ -V
+          echo $LD_LIBRARY_PATH
+          echo $PATH
