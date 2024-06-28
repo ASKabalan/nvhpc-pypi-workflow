@@ -14,6 +14,9 @@ jobs:
           du -h --max-depth=1 . | sort -h
           ls -a /opt
           du -h --max-depth=1 /opt | sort -h
+          ls -a /
+          du -h --max-depth=1 / | sort -h
+          df -h
 
       - name: Download and install NVHPC
         run: |
