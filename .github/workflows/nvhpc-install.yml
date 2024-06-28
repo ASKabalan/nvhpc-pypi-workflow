@@ -8,13 +8,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Download NVHPC
-        run: wget https://developer.download.nvidia.com/hpc-sdk/23.9/nvhpc_2023_239_Linux_x86_64_cuda_multi.tar.gz
+        run: |
+          wget -nv https://developer.download.nvidia.com/hpc-sdk/23.9/nvhpc_2023_239_Linux_x86_64_cuda_multi.tar.gz
+          echo "Downloaded NVHPC."
 
       - name: Extract NVHPC
-        run: tar -xzf nvhpc_2023_239_Linux_x86_64_cuda_multi.tar.gz
+        run: |   
+          tar -xzf nvhpc_2023_239_Linux_x86_64_cuda_multi.tar.gz
+          echo "Extracted NVHPC."
 
       - name: Install NVHPC
-        run: nvhpc_2023_239_Linux_x86_64_cuda_multi/install
+        run:  |
+          nvhpc_2023_239_Linux_x86_64_cuda_multi/install
+          echo "Installed NVHPC."
